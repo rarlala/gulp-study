@@ -4,7 +4,9 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/register": "^7.17.7",
     "del": "^6.0.0",
-    "gulp-cli": "^2.3.0"
+    "gulp-cli": "^2.3.0",
+    "gulp-image": "6.2.1",
+    "nvm": "^0.0.4"
   },
   "name": "gulp",
   "version": "1.0.0",
