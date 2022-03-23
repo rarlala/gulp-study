@@ -4,8 +4,12 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/register": "^7.17.7",
     "del": "^6.0.0",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-cli": "^2.3.0",
+    "gulp-csso": "^4.0.1",
     "gulp-image": "6.2.1",
+    "gulp-sass": "^5.1.0",
+    "node-sass": "^7.0.1",
     "nvm": "^0.0.4"
   },
   "name": "gulp",
@@ -21,6 +25,9 @@
     "dev": "gulp dev",
     "build": "gulp build"
   },
+  "browserslist": [
+    "last 2 versions"
+  ],
   "author": "rarlala",
   "license": "MIT"
 }
