@@ -1,16 +1,18 @@
 {
   "dependencies": {
-    "gulp-cli": "^2.3.0",
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
-    "@babel/register": "^7.17.7"
+    "@babel/register": "^7.17.7",
+    "del": "^6.0.0",
+    "gulp-cli": "^2.3.0"
   },
   "name": "gulp",
   "version": "1.0.0",
   "description": "study gulp",
   "main": "index.js",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-pug": "^5.0.0"
   },
   "scripts": {
     "dev": "gulp dev",
