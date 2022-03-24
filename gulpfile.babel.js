@@ -7,6 +7,7 @@ import autoprefixer from "gulp-autoprefixer";
 import miniCSS from "gulp-csso";
 import bro from "gulp-bro";
 import babelify from "babelify";
+import ghPages from "gulp-gh-pages";
 
 const sass = require("gulp-sass")(require("node-sass"));
 
@@ -32,7 +33,7 @@ const routes = {
   }
 }
 
-const clean = () => del(["build"]);
+const clean = () => del(["build", ".publish"]);
 
 const pug = () => gulp.src(routes.pug.src)
   .pipe(gpug())
@@ -59,6 +60,8 @@ const js = () => gulp.src(routes.js.src)
     })
   ).pipe(gulp.dest(routes.js.dest));
 
+const gh = () => gulp.src("build/**/*").pipe(ghPages());
+
 const watch = () => {
   gulp.watch(routes.pug.watch, pug);
   gulp.watch(routes.img.src, img);
@@ -70,7 +73,9 @@ const prepare = gulp.series([clean, img]);
 
 const assets = gulp.series([pug, styles, js]);
 
-const postDev = gulp.parallel([webserver, watch]);
+const live = gulp.parallel([webserver, watch]);
 
 // package.json에서 사용할 것만 export
-export const dev = gulp.series([prepare, assets, postDev]);
+export const build = gulp.series([prepare, assets]);
+export const dev = gulp.series([prepare, live]);
+export const deploy = gulp.series([build, gh, clean]);
